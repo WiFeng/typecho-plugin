@@ -1,0 +1,13 @@
+.ke-icon-i_br {
+	background-image: url(./default.gif);
+	background-position: 0px 0px;
+	width: 16px;
+	height: 16px;
+}
+
+.ke-icon-i_more {
+	background-image: url(./default.gif);
+	background-position: 0px -16px;
+	width: 16px;
+	height: 16px;
+}
