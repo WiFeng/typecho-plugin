@@ -4,7 +4,7 @@
  * 
  * @package KindEditor
  * @author WiFeng
- * @version 2.0
+ * @version 2.1
  * @link http://521-wf.com
  */
 class KindEditor_Plugin implements Typecho_Plugin_Interface
@@ -284,9 +284,15 @@ EOF;
 				echo <<<EOF
 <script charset="utf-8" src="{$pretty_js_url}"></script>
 <script type="text/javascript">
-window.attachEvent('onload', function(){
+if(document.all) {
+	window.attachEvent('onload', function(){
 	prettyPrint();
 });
+} else {
+	window.addEventListener('load', function(){
+	prettyPrint();
+});  
+}
 </script>
 EOF;
 			} else {
@@ -294,9 +300,15 @@ EOF;
 <link rel="stylesheet" href="{$pretty_css_url}" />
 <script charset="utf-8" src="{$pretty_js_url}"></script>
 <script type="text/javascript">
-window.attachEvent('onload', function(){
+if(document.all) {
+	window.attachEvent('onload', function(){
 	prettyPrint();
 });
+} else {
+	window.addEventListener('load', function(){
+	prettyPrint();
+});  
+}
 </script>
 EOF;
 			}
