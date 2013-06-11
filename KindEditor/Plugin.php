@@ -4,12 +4,12 @@
  * 
  * @package KindEditor
  * @author WiFeng
- * @version 2.1
+ * @version 2.2
  * @link http://521-wf.com
  */
 class KindEditor_Plugin implements Typecho_Plugin_Interface
 {
-	public static $version = '2.0';
+	public static $version = '2.2';
 	private static $_pluginRootUrl = '';
 	private static $_pluginName = 'KindEditor';
 	private static $_init = false;
@@ -34,8 +34,9 @@ class KindEditor_Plugin implements Typecho_Plugin_Interface
 		Typecho_Plugin::factory('admin/write-post.php')->richEditor = array(__CLASS__, 'showEditor');
 		Typecho_Plugin::factory('admin/write-page.php')->richEditor = array(__CLASS__, 'showEditor');
 		Typecho_Plugin::factory('Widget_Archive')->footer = array(__CLASS__, 'prettyCode');
-        Typecho_Plugin::factory('Widget_Abstract_Contents')->content = array(__CLASS__, 'render');
-        Helper::addAction('plugins-kind-upload', 'KindEditor_Upload');
+		Typecho_Plugin::factory('Widget_Abstract_Contents')->content = array(__CLASS__, 'render');
+		Typecho_Plugin::factory('Widget_Abstract_Contents')->excerpt = array(__CLASS__, 'render');
+		Helper::addAction('plugins-kind-upload', 'KindEditor_Upload');
 		Helper::addAction('plugins-kind-filemanager', 'KindEditor_FileManager');
     }
     
